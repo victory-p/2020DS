@@ -10,6 +10,18 @@ public :
     s_record(string s1, string s2, double n);
 };
 
+s_record :: s_record(){
+    s_id = "00000000";
+    name = "None";
+    score = 0;
+}
+
+s_record :: s_record(string s1, string s2, double n){
+    s_id = s1;
+    name = s2;
+    score = n;
+}
+
 void insertion_sort(s_record a[], int n){
     for(int i=1; i<n; i++){
         s_record temp = a[i];
