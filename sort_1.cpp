@@ -49,6 +49,19 @@ void bubble_sort(s_record a[], int n){
     }
 }
 
+void selection_sort(s_record a[], int n){
+    s_record temp;
+    for(int i=0; i<n; i++){
+        int min_i = i;
+        for(int j=i+1; j<n; j++){
+            if(a[j].s_id < a[min_i].s_id) min_i = j;
+            temp = a[i];
+            a[i] = a[min_i];
+            a[min_i] = temp;
+        }
+    }
+}
+
 void show_thelist(s_record a[], int n){
     for(int i=0; i<n; i++){
         cout << a[i].s_id << " : " << a[i].name << " : " << a[i].score << endl;
