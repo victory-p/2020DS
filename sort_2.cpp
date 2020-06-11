@@ -44,3 +44,23 @@ void quick_sort(s_record a[], int left, int right){
     quick_sort(a, left, j-1);
     quick_sort(a, j+1, right);
 }
+
+void adjust(s_record a[], int troot, int size){
+    string tmpkey;
+    int child;
+    s_record temp;
+
+    temp = a[troot];
+    tmpkey = a[troot].s_id;
+    child = troot * 2;
+
+    while(child <= size){
+        if((child < size) && (a[child].s_id < a[child+1].s_id)) child++;
+        if(tmpkey > a[child].s_id) break;
+        else{
+            a[child/2] = a[child];
+            child *= 2;
+        }
+    }
+    a[child/2] = temp;
+}
