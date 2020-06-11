@@ -64,3 +64,24 @@ void adjust(s_record a[], int troot, int size){
     }
     a[child/2] = temp;
 }
+
+void heap_sort(s_record a[], int n){
+    int i;
+    s_record b[S_SIZE], temp;
+    
+    for(i=0; i<n; i++){
+        b[i+1] = a[i];
+    }
+    for(i=n/2; i>0; i--){
+        adjust(b,i,n);
+    }
+    for(i=n-1; i>0; i--){
+        temp = b[1];
+        b[1] = b[i+1];
+        b[i+1] = temp;
+        adjust(b, 1, i);
+    }
+    for(i=0; i<n; i++){
+        a[i] = b[i+1];
+    }
+}
