@@ -85,3 +85,9 @@ void heap_sort(s_record a[], int n){
         a[i] = b[i+1];
     }
 }
+
+void show_thelist(s_record a[], int n){
+    for(int i=0; i<n; i++){
+        cout << a[i].s_id << " : " << a[i].name << " : " << a[i].score << endl;
+    }
+}
