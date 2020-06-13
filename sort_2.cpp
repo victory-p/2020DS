@@ -86,6 +86,29 @@ void heap_sort(s_record a[], int n){
     }
 }
 
+void merge(s_record a[], s_record b[], int n1, int n2, int n3, int n4){
+    int i, j, k, t;
+    i = n1;
+    j = n3;
+    k = n1;
+
+    while((i<=n2) && (j<=n4)){
+        if(a[i].s_id <= a[j].s_id) b[k++] = a[i++];
+        else b[k++] = a[j++];
+    }
+
+    if(i>n2){
+        for(t=j; t<=n4; t++){
+            b[t] = a[t];
+        }
+    }
+    else{
+        for(t=i; t<=n2; t++){
+            b[k+t-i] = a[t];
+        }
+    }
+}
+
 void show_thelist(s_record a[], int n){
     for(int i=0; i<n; i++){
         cout << a[i].s_id << " : " << a[i].name << " : " << a[i].score << endl;
