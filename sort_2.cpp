@@ -122,6 +122,18 @@ void merge_pass(s_record a[], s_record b[], int n, int s){
     }
 }
 
+void merge_sort(s_record a[], int n){
+    int s = 1;
+    s_record b[S_SIZE];
+
+    while(s<n){
+        merge_pass(a, b, n-1, s);
+        s *= 2;
+        merge_pass(b, a, n-1, s);
+        s *= 2;
+    }
+}
+
 void show_thelist(s_record a[], int n){
     for(int i=0; i<n; i++){
         cout << a[i].s_id << " : " << a[i].name << " : " << a[i].score << endl;
