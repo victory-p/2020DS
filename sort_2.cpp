@@ -109,6 +109,19 @@ void merge(s_record a[], s_record b[], int n1, int n2, int n3, int n4){
     }
 }
 
+void merge_pass(s_record a[], s_record b[], int n, int s){
+    int i, j;
+    for(i=0; i<(n-2 * s+1); i+=2*s){
+        merge(a, b, i, i+s-1, i+s, i+2*s-1);
+    }
+    if(i+s <= n) merge(a, b, i, i+s-1, i+s, n);
+    else{
+        for(j=i; j<=n; j++){
+            b[j] = a[j];
+        }
+    }
+}
+
 void show_thelist(s_record a[], int n){
     for(int i=0; i<n; i++){
         cout << a[i].s_id << " : " << a[i].name << " : " << a[i].score << endl;
